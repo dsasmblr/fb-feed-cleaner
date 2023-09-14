@@ -4,6 +4,7 @@
 // @version      0.1
 // @description  Your FB feed the way it used to be.
 // @match        *://*.facebook.com/*
+// @exclude      *://*.facebook.*/groups/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=facebook.com
 // @grant        none
 // ==/UserScript==
