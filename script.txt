@@ -13,7 +13,7 @@
 
     const t = document.body;
     const c = { childList: true, subtree: true };
-    const cl = '[class="x1lliihq"]';
+    const cl = '[role="feed"] > div > div';
     const rem = (el) => {
         el.closest(cl).remove();
     };
