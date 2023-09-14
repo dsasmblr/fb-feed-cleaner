@@ -4,7 +4,6 @@
 // @version      0.1
 // @description  Your FB feed the way it used to be.
 // @match        *://*.facebook.com/*
-// @exclude      *://*.facebook.*/groups/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=facebook.com
 // @grant        none
 // ==/UserScript==
@@ -12,11 +11,12 @@
 (function() {
     'use strict';
 
+    const isGroup = () => window.location.pathname.includes('groups');
     const t = document.body;
     const c = { childList: true, subtree: true };
     const cl = '[role="feed"] > div > div';
     const rem = (el) => {
-        el.closest(cl).remove();
+        el.closest(cl)?.remove();
     };
 
     const cb = (mutList, obs) => {
@@ -28,10 +28,12 @@
             });
 
             // Kill ads
-            document.querySelectorAll('[aria-label="Actions for this post"]').forEach(el => {
-                const isAd = el.parentElement.parentElement.nextSibling === null;
-                isAd ? rem(el) : null;
-            });
+            if (!isGroup()) {
+                document.querySelectorAll('[aria-label="Actions for this post"]').forEach(el => {
+                    const isAd = el.parentElement.parentElement.nextSibling === null;
+                    isAd ? rem(el) : null;
+                });
+            }
         });
     };
 
