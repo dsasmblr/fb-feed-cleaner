@@ -1,6 +1,6 @@
 # Facebook Feed Cleaner
 
-This is a Tampermonkey script that gets rid of "Suggested" and "Sponsored" posts from your FB feed.
+This is a [Tampermonkey](https://www.tampermonkey.net/) script that gets rid of "Suggested" and "Sponsored" posts from your FB feed.
 
 Simply copy and paste the script code into a new Tampermonkey script, save it, refresh FB and voila.
 
